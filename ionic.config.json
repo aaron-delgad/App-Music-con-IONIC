@@ -1,0 +1,7 @@
+{
+  "name": "rade-music",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
