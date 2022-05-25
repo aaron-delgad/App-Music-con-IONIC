@@ -1,0 +1,22 @@
+ion-content {
+  font-family: "Times New Roman", Times, serif;
+}
+.slide,
+div{
+  background-color: white;
+  height: 100%;
+  max-width: 800px;
+}
+div ion-icon[name="close"] {
+  float: right;
+  color: var(--ion-color-primary);
+  font-size: 40px;
+}
+div img {
+  width: 120px;
+  margin-top: 80px;
+}
+div > ion-icon {
+  color: var(--ion-color-success);
+  font-size: 48px;
+}
