@@ -1,8 +1,8 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'io.ionic.starter',
-  appName: 'rade-music',
+  appId: 'rade.music.com',
+  appName: 'Rade Music',
   webDir: 'www',
   bundledWebRuntime: false
 };
