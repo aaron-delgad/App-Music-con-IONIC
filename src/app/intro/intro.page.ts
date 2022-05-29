@@ -11,7 +11,7 @@ export class IntroPage implements OnInit {
 
   slides = [
     {
-      imageSrc: 'assets/img/logoMusic.jpg',
+      imageSrc: 'assets/img/logoMusic.png',
       imageAlt: 'logo.jpg',
       title: 'Escucha tu música',
       subtitle: 'EN CUALQUIER LUGAR',
@@ -19,7 +19,7 @@ export class IntroPage implements OnInit {
       icon: 'play-circle-outline',
     },
     {
-      imageSrc: 'assets/img/logoMusic.jpg',
+      imageSrc: 'assets/img/logoMusic.png',
       imageAlt: 'logo.jpg',
       title: 'Disfruta de nuestro reproductor',
       subtitle: 'DE VIDEOS INCREIBLES',
@@ -28,7 +28,7 @@ export class IntroPage implements OnInit {
       icon: 'videocam-outline',
     },
     {
-      imageSrc: 'assets/img/logoMusic.jpg',
+      imageSrc: 'assets/img/logoMusic.png',
       imageAlt: 'logo.jpg',
       title: 'Accede a lo exclusivo',
       subtitle: 'MODO DEPORTE',
