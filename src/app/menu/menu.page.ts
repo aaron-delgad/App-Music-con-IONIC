@@ -22,7 +22,7 @@ export class MenuPage implements OnInit {
   }
 
   logout(): void {
-    this.storage.remove('isUserLoggeIn');
+    this.storage.set('isUserLoggeIn', false);
     this.router.navigate(['/login']);
   }
 }

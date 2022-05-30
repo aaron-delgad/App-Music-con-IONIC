@@ -33,7 +33,9 @@
             ],
             "styles": [
               "src/theme/variables.scss",
-              "src/global.scss"],
+              "src/global.scss",
+              "src/assets/scss/style.scss"
+            ],
             "scripts": [],
             "aot": false,
             "vendorChunk": true,

@@ -4,7 +4,7 @@ import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
 import { HomePage } from './home.page';
 import { HomePageRoutingModule } from './home.routing';
-
+import { SwiperModule } from 'swiper/angular';
 
 @NgModule({
   imports: [
@@ -12,7 +12,7 @@ import { HomePageRoutingModule } from './home.routing';
     FormsModule,
     IonicModule,
     HomePageRoutingModule,
-
+    SwiperModule,
   ],
   declarations: [HomePage]
 })

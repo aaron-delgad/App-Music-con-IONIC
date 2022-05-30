@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Storage } from '@ionic/storage-angular';
+import SwiperCore, { Autoplay, Keyboard, Scrollbar, Zoom } from 'swiper';
+
+SwiperCore.use([Autoplay, Keyboard, Scrollbar, Zoom]);
 
 @Component({
   selector: 'app-intro',

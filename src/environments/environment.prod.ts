@@ -1,3 +1,6 @@
 export const environment = {
-  production: true
+  production: true,
+  backend: {
+    musicUrl: 'https://platzi-music-api.herokuapp.com/browse/new-releases',
+  }
 };

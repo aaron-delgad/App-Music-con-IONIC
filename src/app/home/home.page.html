@@ -6,7 +6,39 @@
     <ion-title>Inicio</ion-title>
   </ion-toolbar>
 </ion-header>
-<ion-content class="ion-padding">
-  <ion-label>este es el home</ion-label>
-</ion-content>
+<ion-content [fullscreen]="true" class="ion-padding">
+    <h1>Artistas</h1>
+    <swiper [config]="slideOps" *ngIf="artists.length">
+      <ng-template swiperSlide *ngFor="let artista of artists">
+        <div>
+          <ion-avatar>
+            <img [src]="artista.images[0].url" />
+            <span class="fz--lg">{{artista.name}}</span>
+          </ion-avatar>
+        </div>
+      </ng-template>
+    </swiper>
+    <h1>Albums</h1>
+    <swiper [config]="slideOps" *ngIf="albums.length">
+      <ng-template swiperSlide *ngFor="let album of albums">
+        <div>
+          <ion-avatar class="br--0">
+            <img [src]="album.images[0].url" />
+            <span class="fz--lg">{{album.name}}</span>
+          </ion-avatar>
+        </div>
+      </ng-template>
+    </swiper>
+    <h1>Canciones</h1>
+    <swiper [config]="slideOps" *ngIf="songs.length">
+      <ng-template swiperSlide *ngFor="let song of songs">
+        <div>
+          <ion-avatar class="br--0">
+            <img [src]="song.images[0].url" />
+            <span class="fz-lg">{{song.name}}</span>
+          </ion-avatar>
+        </div>
+      </ng-template>
+    </swiper>
 
+</ion-content>
