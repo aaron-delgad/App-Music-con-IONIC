@@ -1,3 +1,74 @@
 <ion-content>
-
+  <ion-toolbar color="tertiary" class="ion-margin-vertical ion-padding-vertical">
+    <ion-icon (click)="goLogin()" size="large" class="ion-margin-horizontal" name="arrow-back-outline"></ion-icon>
+    <ion-text class="ion-margin-start">Registrarse</ion-text>
+  </ion-toolbar>
+<form [formGroup]="form">
+  <ion-item>
+    <ion-label position="stacked" color="primary">Nombre</ion-label>
+    <ion-input type="text" formControlName="name" placeholder="Ingrese su nombre"></ion-input>
+  </ion-item>
+  <div class="validation-error ion-padding-horizontal">
+    <ng-container *ngFor="let validation of validatorsMessage.name">
+      <div *ngIf="form.get('name').hasError(validation.type) &&
+          (form.get('name').dirty || form.get('name').touched)">
+        {{validation.message}}
+      </div>
+    </ng-container>
+  </div>
+  <ion-item>
+    <ion-label position="stacked" color="primary">Apellidos</ion-label>
+    <ion-input type="text" formControlName="lastName" placeholder="ingrese sus apellidos"></ion-input>
+  </ion-item>
+  <div class="validation-error ion-padding-horizontal">
+    <ng-container *ngFor="let validation of validatorsMessage.lastName">
+      <div *ngIf="form.get('lastName').hasError(validation.type) &&
+          (form.get('lastName').dirty || form.get('lastName').touched)">
+        {{validation.message}}
+      </div>
+    </ng-container>
+  </div>
+  <ion-item>
+    <ion-label position="stacked" color="primary">Correo</ion-label>
+    <ion-input type="email" formControlName="email"
+               appInput="noSpaces" placeholder="Ingrese su correo"></ion-input>
+  </ion-item>
+  <div class="validation-error ion-padding-horizontal">
+    <ng-container *ngFor="let validation of validatorsMessage.email">
+      <div *ngIf="form.get('email').hasError(validation.type) &&
+          (form.get('email').dirty || form.get('email').touched)">
+        {{validation.message}}
+      </div>
+    </ng-container>
+  </div>
+  <ion-item>
+    <ion-label position="stacked" color="primary">Contraseña</ion-label>
+    <ion-input type="password" formControlName="password"
+               appInput="noSpaces"  placeholder="Ingrese su contraseña"></ion-input>
+  </ion-item>
+  <div class="validation-error ion-padding-horizontal">
+    <ng-container *ngFor="let validation of validatorsMessage.password">
+      <div *ngIf="form.get('password').hasError(validation.type) &&
+        (form.get('password').dirty || form.get('password').touched)">
+        {{validation.message}}
+      </div>
+    </ng-container>
+  </div>
+  <ion-item>
+    <ion-label position="stacked" color="primary">Confirmar Contraseña</ion-label>
+    <ion-input type="password" formControlName="confirmPassword"
+               appInput="noSpaces"  placeholder="Ingrese su contraseña"></ion-input>
+  </ion-item>
+  <div class="validation-error ion-padding-horizontal">
+    <div *ngIf="form.get('password').valid &&
+                    form.hasError('mismatchedPasswords') &&
+                  ( form.get('confirmPassword').dirty ||
+                    form.get('confirmPassword').touched)">
+      Password de confirmación incorrecto
+    </div>
+  </div>
+  <div  class="ion-text-center ion-padding-top">
+    <ion-button (click)="register()" [disabled]="form.invalid" color="primary">Registrar</ion-button>
+  </div>
+</form>
 </ion-content>

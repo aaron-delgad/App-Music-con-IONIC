@@ -36,8 +36,8 @@ export class LoginPage implements OnInit {
 
   formBuild(): void{
     this.form = this.builder.group({
-      email: ['', [Validators.required, Validators.email, Validators.pattern(/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$/)]],
-      password: ['', [Validators.required, Validators.minLength(5)]]
+      email: ['radees.24.16@gmail.com', [Validators.required, Validators.email, Validators.pattern(/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$/)]],
+      password: ['12345', [Validators.required, Validators.minLength(5)]]
     });
   }
 
@@ -45,7 +45,7 @@ export class LoginPage implements OnInit {
     this.authentificationService.loginUser(this.form.value).then(resp => {
       this.errorMessage = '';
       this.storage.set('isUserLoggeIn', true);
-      this.router.navigate(['/home']);
+      this.router.navigate(['/menu/home']);
     });
   }
 

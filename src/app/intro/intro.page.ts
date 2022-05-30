@@ -42,7 +42,7 @@ export class IntroPage implements OnInit {
               private readonly storage: Storage) { }
   finish() {
     this.storage.set('isIntroShowed', true);
-    this.router.navigate(['/home']);
+    this.router.navigate(['/login']);
   }
 
   async ngOnInit() {
