@@ -25,4 +25,12 @@ export class MenuPage implements OnInit {
     this.storage.set('isUserLoggeIn', false);
     this.router.navigate(['/login']);
   }
+
+  goToHome() {
+    this.router.navigate(['/menu/home']);
+  }
+
+  goToSetting() {
+    this.router.navigate(['/menu/setting']);
+  }
 }

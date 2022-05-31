@@ -16,7 +16,8 @@ export class HomePage implements OnInit{
     playing: false,
     name: '',
   };
-  currenSong: any = [];
+  currenSong: any = {};
+  newTime: any;
 
   slideOps = {
     loop: false,
@@ -55,18 +56,50 @@ export class HomePage implements OnInit{
     modal.onDidDismiss().then(dataReturned => {
       this.song = dataReturned.data;
     });
+    return await modal.present();
+  }
 
+  async showSongAlbum(album) {
+    const songs = await this.musicService.getAlbumTrack(album.id);
+    const modal = await this.modalController.create({
+      component: SongsModalPage,
+      componentProps: {
+        songs: songs.items,
+        album: album.name,
+      },
+    });
+    modal.onDidDismiss().then(dataReturned => {
+      this.song = dataReturned.data;
+    });
     return await modal.present();
   }
 
   play(): void {
     this.currenSong = new Audio(this.song.preview_url);
     this.currenSong.play();
+    this.currenSong.addEventListener('timeupdate', () => {
+      this.newTime = (this.currenSong.currentTime / this.currenSong.duration);
+    });
     this.song.playing = true;
   }
 
   pause(): void{
     this.currenSong.pause();
     this.song.playing = false;
+  }
+
+  parseTime(time = '0.00'){
+    if (time){
+      const partTime = parseInt(time.toString().split('.')[0], 10);
+      let minutes = Math.floor(partTime/60).toString();
+        if(minutes.length === 1){
+          minutes = '0' + minutes;
+        }
+      let seconds = (partTime % 60).toString();
+        if(seconds.length === 1){
+          seconds = '0' + seconds;
+        }
+        return minutes + ':' + seconds;
+    }
   }
 }
