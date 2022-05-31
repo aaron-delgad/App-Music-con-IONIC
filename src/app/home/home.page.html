@@ -6,39 +6,61 @@
     <ion-title>Inicio</ion-title>
   </ion-toolbar>
 </ion-header>
-<ion-content [fullscreen]="true" class="ion-padding">
-    <h1>Artistas</h1>
+<ion-content [fullscreen]="true" >
+    <h3 class="fz--lg mt--1 color--primary">Artistas</h3>
     <swiper [config]="slideOps" *ngIf="artists.length">
       <ng-template swiperSlide *ngFor="let artista of artists">
         <div>
-          <ion-avatar>
+          <ion-avatar (click)="showSongs(artista)">
             <img [src]="artista.images[0].url" />
-            <span class="fz--lg">{{artista.name}}</span>
+            <span class="fz--md">{{artista.name}}</span>
           </ion-avatar>
         </div>
       </ng-template>
     </swiper>
-    <h1>Albums</h1>
+    <h3 class="fz--lg mt--0 color--primary">Albums</h3>
     <swiper [config]="slideOps" *ngIf="albums.length">
       <ng-template swiperSlide *ngFor="let album of albums">
         <div>
           <ion-avatar class="br--0">
             <img [src]="album.images[0].url" />
-            <span class="fz--lg">{{album.name}}</span>
+            <span class="fz--md">{{album.name}}</span>
           </ion-avatar>
         </div>
       </ng-template>
     </swiper>
-    <h1>Canciones</h1>
+    <h3 class="fz--lg mt--0 color--primary">Canciones</h3>
     <swiper [config]="slideOps" *ngIf="songs.length">
       <ng-template swiperSlide *ngFor="let song of songs">
         <div>
           <ion-avatar class="br--0">
             <img [src]="song.images[0].url" />
-            <span class="fz-lg">{{song.name}}</span>
+            <span class="fz--md">{{song.name}}</span>
           </ion-avatar>
         </div>
       </ng-template>
     </swiper>
-
 </ion-content>
+<ion-footer>
+  <ion-grid>
+    <ion-row>
+      <ion-col class="ion-text-start">0:00</ion-col>
+      <ion-col class="ion-text-end">0:00</ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-progress-bar [value]="0.5"></ion-progress-bar>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="1">
+        <ion-icon name="heart"></ion-icon>
+      </ion-col>
+      <ion-col size="10">
+        <ion-text>{{song.name || 'Aun no has'}}</ion-text>
+      </ion-col>
+      <ion-col size="1">
+        <ion-icon name="play" (click)="play()" *ngIf="!song.playing"></ion-icon>
+        <ion-icon name="pause" (click)="pause()" *ngIf="song.playing"></ion-icon>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-footer>

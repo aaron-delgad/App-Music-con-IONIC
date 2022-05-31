@@ -1,17 +1,20 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+
 import { IonicModule } from '@ionic/angular';
-import { MenuPageRoutingModule } from './menu.routing';
-import { MenuPage } from './menu.page';
+
+import { SongsModalPageRoutingModule } from './songs-modal.routing';
+
+import { SongsModalPage } from './songs-modal.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    MenuPageRoutingModule
+    SongsModalPageRoutingModule
   ],
-  declarations: [MenuPage]
+  declarations: [SongsModalPage]
 })
-export class MenuPageModule {}
+export class SongsModalPageModule {}

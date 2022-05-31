@@ -21,5 +21,13 @@ export class MusicService {
     return this.http.get(`${this.urlBase}`)
       .pipe(map((resp: any) => resp.albums.items));
   }
+
+  getArtistsTopTracks(artistId){
+    return fetch(
+      `https://platzi-music-api.herokuapp.com/artists/${artistId}/top-tracks?country=PE`
+    ).then(
+      response=> response.json()
+    );
+  }
 }
 

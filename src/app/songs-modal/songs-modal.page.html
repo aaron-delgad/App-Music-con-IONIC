@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title color="primary" class="fz--xl">{{artist + ' - Top Tracks'}}</ion-title>
+    <ion-buttons slot="end">
+      <ion-icon (click)="selectSong('')" size="large" name="close-outline"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let song of songs; index as i" (click)="selectSong(song)">
+      <ion-avatar>
+          {{i+1}}
+      </ion-avatar>
+      <ion-label>
+        <h2>{{song.name}}</h2>
+        <p>{{song.popularity}}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
