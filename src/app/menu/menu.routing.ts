@@ -8,8 +8,15 @@ const routes: Routes = [
     component: MenuPage,
     children: [
       {
+        path: '', redirectTo: 'home', pathMatch: 'full'
+      },
+      {
         path: 'home',
         loadChildren: () => import('../home/home.module').then(m => m.HomePageModule),
+      },
+      {
+        path: 'setting',
+        loadChildren: () => import('../setting/setting.module').then(m => m.SettingPageModule),
       },
     ]
   }

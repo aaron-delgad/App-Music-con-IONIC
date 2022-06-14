@@ -45,7 +45,7 @@ export class LoginPage implements OnInit {
     this.authentificationService.loginUser(this.form.value).then(resp => {
       this.errorMessage = '';
       this.storage.set('isUserLoggeIn', true);
-      this.router.navigate(['/menu/home']);
+      this.router.navigate(['/menu']);
     });
   }
 

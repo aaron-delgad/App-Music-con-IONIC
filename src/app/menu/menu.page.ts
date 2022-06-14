@@ -32,5 +32,6 @@ export class MenuPage implements OnInit {
 
   goToSetting() {
     this.router.navigate(['/menu/setting']);
+    this.menuController.close();
   }
 }

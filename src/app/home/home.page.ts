@@ -12,11 +12,16 @@ export class HomePage implements OnInit{
   artists: any[] = [];
   albums: any[] = [];
   songs: any[] = [];
-  song: any = {
+  song: {
+    previewurl: string;
+    playing: boolean;
+    name: string;
+  } = {
+    previewurl: '',
     playing: false,
     name: '',
   };
-  currenSong: any = {};
+  currenSong: HTMLAudioElement;
   newTime: any;
 
   slideOps = {
@@ -75,7 +80,7 @@ export class HomePage implements OnInit{
   }
 
   play(): void {
-    this.currenSong = new Audio(this.song.preview_url);
+    this.currenSong = new Audio(this.song.previewurl);
     this.currenSong.play();
     this.currenSong.addEventListener('timeupdate', () => {
       this.newTime = (this.currenSong.currentTime / this.currenSong.duration);
@@ -88,7 +93,7 @@ export class HomePage implements OnInit{
     this.song.playing = false;
   }
 
-  parseTime(time = '0.00'){
+  parseTime(time: number){
     if (time){
       const partTime = parseInt(time.toString().split('.')[0], 10);
       let minutes = Math.floor(partTime/60).toString();
