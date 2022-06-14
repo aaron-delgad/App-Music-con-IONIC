@@ -34,4 +34,9 @@ export class MenuPage implements OnInit {
     this.router.navigate(['/menu/setting']);
     this.menuController.close();
   }
+
+  goToSport() {
+    this.router.navigate(['/menu/sport']);
+    this.menuController.close();
+  }
 }
