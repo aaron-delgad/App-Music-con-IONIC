@@ -14,8 +14,7 @@ export class MenuPage implements OnInit {
               private readonly router: Router,
               private readonly storage: Storage) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   closeMenu(): void{
     this.menuController.close();
@@ -28,6 +27,7 @@ export class MenuPage implements OnInit {
 
   goToHome() {
     this.router.navigate(['/menu/home']);
+    this.menuController.close();
   }
 
   goToSetting() {

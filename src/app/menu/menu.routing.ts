@@ -18,6 +18,10 @@ const routes: Routes = [
         path: 'setting',
         loadChildren: () => import('../setting/setting.module').then(m => m.SettingPageModule),
       },
+      {
+        path: 'sport',
+        loadChildren: () => import('../sports/sports.module').then(m => m.SportsPageModule),
+      },
     ]
   }
 ];
